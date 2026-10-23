@@ -1,0 +1,5 @@
+# dsh-tauri-mobile-ui-fix bundle patch：装到 profile 里就自动插入这一行挂载。
+# 只在 dsh-tauri 存在时有意义；不影响没有装 dsh-tauri 的 profile。
+- insert:
+    - id: dsh-tauri-mobile-ui-fix
+      name: dsh-tauri-mobile-ui-fix

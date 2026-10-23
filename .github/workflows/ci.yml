@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: test (node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ['22', '24']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      # 产物必须能由源码重建，且构建是幂等的。
+      - name: Build client bundle
+        run: node scripts/build-client.mjs
+
+      - name: Check build is reproducible
+        run: git diff --exit-code client/bundle.js
+
+      - name: Syntax check
+        run: |
+          node --check src/index.js
+          node --check client/index.js
+
+      # 这两组不需要装 DSH：verify.mjs 找不到宿主产物会退回内置常量副本。
+      - name: Verify activation and styles
+        run: node test/verify.mjs
+
+      - name: Verify teardown and reload
+        run: node test/verify-lifecycle.mjs

@@ -1,0 +1,57 @@
+{
+  "name": "dsh-tauri-mobile-ui-fix",
+  "version": "0.1.0",
+  "description": "修复 dsh-tauri-mobile-ui / dsh-tauri 在误报 hover 能力的 WebView 上不激活移动布局的问题。",
+  "license": "MIT",
+  "author": "vbin-dev",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./client": "./client/bundle.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "client",
+    "cordis.patch.yml"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "dsh-tauri",
+    "mobile",
+    "media-query",
+    "android-webview"
+  ],
+  "engines": {
+    "node": ">=22.5",
+    "dsh": ">=0.1.7-rc.1"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "check": "node --check src/index.js && node --check client/index.js",
+    "build:client": "node scripts/build-client.mjs",
+    "test": "node test/verify.mjs && node test/verify-lifecycle.mjs",
+    "test:real": "node test/verify-real.mjs",
+    "prepublishOnly": "node scripts/build-client.mjs && npm run check && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vbin-dev/dsh-tauri-mobile-ui-fix.git"
+  },
+  "homepage": "https://github.com/vbin-dev/dsh-tauri-mobile-ui-fix#readme",
+  "bugs": {
+    "url": "https://github.com/vbin-dev/dsh-tauri-mobile-ui-fix/issues"
+  }
+}
