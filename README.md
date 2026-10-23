@@ -75,6 +75,12 @@ dsh plugin --profile <profile> add github:vbin-dev/dsh-tauri-mobile-ui-fix
 
 **装完必须完全退出并重启 DSH Tauri。** `dsh-client-modules` 把 `dsh.client` 声明缓存在进程内的 `pkgMeta` Map 里（`resolveMeta` 只读一次 package.json），改完 package.json 不重启，manifest 里还是旧值。
 
+如果安装时卡在别的依赖上（例如国内镜像还没同步某个刚发布的版本），加上官方源重试：
+
+```bash
+dsh plugin --profile <profile> add github:vbin-dev/dsh-tauri-mobile-ui-fix --registry=https://registry.npmjs.org
+```
+
 ### 手动挂载
 
 如果不用 `dsh plugin`，也可以把本包放到 profile 的 `node_modules` 下，然后在 `~/.dsh/profiles/<profile>/cordis.patch.yml` 末尾追加：
@@ -107,6 +113,8 @@ DSH_TAURI_CLIENT=/path/to/dsh-tauri/dist/client.cjs npm run test:real
 ```
 
 探测顺序：`DSH_TAURI_CLIENT` → `DSH_TAURI_RESOURCES` → Linux 安装包 → macOS 应用包 → 用户级安装 → profile 内链接。
+
+两套脚本都能在没有 DSH 的机器上运行：`npm test` 一组读不到宿主产物时会退回内置的上游常量副本，CI 里就是这么跑的。
 
 ## 仓库结构
 
