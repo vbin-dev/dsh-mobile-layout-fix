@@ -1,4 +1,4 @@
-// dsh-tauri-mobile-ui-fix
+// dsh-mobile-layout-fix
 //
 // 修复 dsh-tauri-mobile-ui / dsh-tauri 在「误报 hover 能力」的 WebView 上
 // 不激活移动布局的问题（vivo V2353A、Android 14 / Chrome 116 一类老内核）。
@@ -30,7 +30,7 @@
 //
 // 全部改动在卸载时逐字还原，不污染全局。
 
-const name = 'dsh-tauri-mobile-ui-fix'
+const name = 'dsh-mobile-layout-fix'
 // 不注入任何服务：本插件只 patch 全局 matchMedia / 样式表，
 // 不消费别的插件的 cordis 服务。写成插件 id 会让入口永远 pending
 // （inject 认的是服务名，如 slots / layout / locale / sessions）。
@@ -274,7 +274,7 @@ function installWithResolvers() {
     shimmed = impl
   }
   catch (error) {
-    console.warn('[dsh-tauri-mobile-ui-fix] Promise.withResolvers shim 安装失败', error)
+    console.warn('[dsh-mobile-layout-fix] Promise.withResolvers shim 安装失败', error)
   }
 }
 

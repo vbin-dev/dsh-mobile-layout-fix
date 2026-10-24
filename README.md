@@ -1,4 +1,4 @@
-# dsh-tauri-mobile-ui-fix
+# dsh-mobile-layout-fix
 
 > 修复 DSH Tauri 桌面版在部分 Android WebView 上**移动布局完全不激活**的问题。
 
@@ -68,7 +68,7 @@ const MOBILE_POINTER_QUERIES = ['(pointer: coarse)']
 ### 作为 git 插件安装（推荐）
 
 ```bash
-dsh plugin --profile <profile> add github:vbin-dev/dsh-tauri-mobile-ui-fix
+dsh plugin --profile <profile> add github:vbin-dev/dsh-mobile-layout-fix
 ```
 
 `package.json` 里声明了 `dsh.bundle.patch`，装好后 profile 的 `bundles` 会自动带上这一层，无需手工改 `cordis.patch.yml`。
@@ -78,7 +78,7 @@ dsh plugin --profile <profile> add github:vbin-dev/dsh-tauri-mobile-ui-fix
 如果安装时卡在别的依赖上（例如国内镜像还没同步某个刚发布的版本），加上官方源重试：
 
 ```bash
-dsh plugin --profile <profile> add github:vbin-dev/dsh-tauri-mobile-ui-fix --registry=https://registry.npmjs.org
+dsh plugin --profile <profile> add github:vbin-dev/dsh-mobile-layout-fix --registry=https://registry.npmjs.org
 ```
 
 ### 手动挂载
@@ -87,8 +87,8 @@ dsh plugin --profile <profile> add github:vbin-dev/dsh-tauri-mobile-ui-fix --reg
 
 ```yaml
 - insert:
-    - id: dsh-tauri-mobile-ui-fix
-      name: dsh-tauri-mobile-ui-fix
+    - id: dsh-mobile-layout-fix
+      name: dsh-mobile-layout-fix
 ```
 
 ### 一个容易踩的坑：`inject` 填的是服务名

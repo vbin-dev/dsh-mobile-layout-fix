@@ -154,7 +154,7 @@ if (registration === null) {
   process.exit(1)
 }
 const { name, apply } = registration.factory()
-if (name !== 'dsh-tauri-mobile-ui-fix') {
+if (name !== 'dsh-mobile-layout-fix') {
   console.error(`FAIL: name 不对 -> ${name}`)
   process.exit(1)
 }

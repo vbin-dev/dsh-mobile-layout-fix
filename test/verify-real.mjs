@@ -174,7 +174,7 @@ makeStyle('dsh-tauri-mobile-ui-styles', ORIGINAL_MOBILE_CSS)
 makeStyle('dsh-tauri-mobile-ui-settings-styles', ORIGINAL_SETTINGS_CSS)
 
 // ── 装载插件 ────────────────────────────────────────────────────────────
-const fix = loadBundle(FIX, 'dsh-tauri-mobile-ui-fix')
+const fix = loadBundle(FIX, 'dsh-mobile-layout-fix')
 const cleanups = []
 fix.apply({ effect: run => { cleanups.push(run()) }, on() {} })
 

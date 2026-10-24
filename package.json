@@ -1,5 +1,5 @@
 {
-  "name": "dsh-tauri-mobile-ui-fix",
+  "name": "dsh-mobile-layout-fix",
   "version": "0.1.0",
   "description": "修复 dsh-tauri-mobile-ui / dsh-tauri 在误报 hover 能力的 WebView 上不激活移动布局的问题。",
   "license": "MIT",
@@ -48,10 +48,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vbin-dev/dsh-tauri-mobile-ui-fix.git"
+    "url": "git+https://github.com/vbin-dev/dsh-mobile-layout-fix.git"
   },
-  "homepage": "https://github.com/vbin-dev/dsh-tauri-mobile-ui-fix#readme",
+  "homepage": "https://github.com/vbin-dev/dsh-mobile-layout-fix#readme",
   "bugs": {
-    "url": "https://github.com/vbin-dev/dsh-tauri-mobile-ui-fix/issues"
+    "url": "https://github.com/vbin-dev/dsh-mobile-layout-fix/issues"
   }
 }
